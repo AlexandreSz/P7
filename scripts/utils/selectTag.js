@@ -21,7 +21,7 @@ function showSelectedTags() {
             removeTagElement.addEventListener('click', (event) => {
                 selectedIngredientsTags.splice(index, 1);
                 showSelectedTagsContainer.removeChild(ingredientTagElement);
-
+                toFilterRecipes(selectedIngredientsTags, selectedAppliancesTags, seclectedUstensilsTags)
 
             })
 
@@ -47,7 +47,7 @@ function showSelectedTags() {
             removeTagElement.addEventListener('click', (event) => {
                 selectedAppliancesTags.splice(index, 1);
                 showSelectedTagsContainer.removeChild(applianceTagElement);
-
+                toFilterRecipes(selectedIngredientsTags, selectedAppliancesTags, seclectedUstensilsTags)
             })
 
             removeTagElement.appendChild(img);
@@ -71,7 +71,7 @@ function showSelectedTags() {
             removeTagElement.addEventListener('click', (event) => {
                 seclectedUstensilsTags.splice(index, 1);
                 showSelectedTagsContainer.removeChild(ustensilTagElement);
-
+                toFilterRecipes(selectedIngredientsTags, selectedAppliancesTags, seclectedUstensilsTags)
             })
 
             removeTagElement.appendChild(img);

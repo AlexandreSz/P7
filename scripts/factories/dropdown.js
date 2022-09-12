@@ -70,7 +70,7 @@ function displayApplianceTagList(appliance) {
 
         dropdownLinkElement.addEventListener('click', function(event) {
             selectedAppliancesTags.push(event.target.textContent);
-            console.log(event.target.textContent, selectedAppliancesTags)
+            console.log(selectedAppliancesTags)
             showSelectedTags();
 
             toFilterRecipes(selectedIngredientsTags, selectedAppliancesTags, seclectedUstensilsTags);
