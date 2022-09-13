@@ -65,8 +65,15 @@ function toFilterRecipes(selectedIngredientsTags, selectedAppliancesTags, seclec
     }
 
     const results = result3;
-    if (results.length) {
-        console.log(results)
-        displayData(results);
+    console.log(results)
+    displayData(results);
+    if (results.length < 1) {
+        const err = document.getElementById("errorMess");
+        console.log(err)
+        err.style.display = "block"
+    } else {
+        const err = document.getElementById("errorMess");
+        console.log(err)
+        err.style.display = "none"
     }
 }
