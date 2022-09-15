@@ -1,6 +1,10 @@
 function cardFactory(cardData) {
     //call data that we will use, stored in index.js
-    const { name, ingredients, time, description } = cardData;
+    const { name, ingredients, time, description, appliance, ustensils } = cardData;
+
+
+
+
 
     //create just one recipe
     function getRecipeCardDOM() {
@@ -77,7 +81,10 @@ function cardFactory(cardData) {
         cardBody.appendChild(cardDetails);
 
         return (recipeContainer);
+
     }
 
+
     return { getRecipeCardDOM };
+
 }

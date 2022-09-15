@@ -5,6 +5,8 @@ const selectedAppliancesTags = [];
 
 
 
+
+
 //step 2 : retrieve the data x insert it into the empty slots
 function init() {
     displayData(recipes); /*de recipes.js*/

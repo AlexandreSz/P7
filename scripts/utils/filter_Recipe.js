@@ -73,7 +73,6 @@ function toFilterRecipes(selectedIngredientsTags, selectedAppliancesTags, seclec
         err.style.display = "block"
     } else {
         const err = document.getElementById("errorMess");
-        console.log(err)
         err.style.display = "none"
     }
 }
