@@ -6,20 +6,21 @@ function toFilterRecipes(selectedIngredientsTags, selectedAppliancesTags, seclec
     let result3 = [];
 
     if (selectedIngredientsTags.length > 0) {
+
         for (let i = 0; i < recipes.length; i++) {
             const { ingredients, appliance, ustensils } = recipes[i];
-            let isIncludedInSelectedTags = false;
+            let matchedIng = 0;
             for (let y = 0; y < selectedIngredientsTags.length; y++) {
                 if (ingredients.findIndex((ingredient) => ingredient.ingredient.toLowerCase() === selectedIngredientsTags[y].toLowerCase()) > -1) {
-                    isIncludedInSelectedTags = true;
-                } else {
-                    isIncludedInSelectedTags = false;
+                    matchedIng++;
+
                 }
             }
-
-            if (isIncludedInSelectedTags) {
+            if (matchedIng == selectedIngredientsTags.length) {
                 result1.push(recipes[i]);
             }
+
+
         }
     } else {
         result1 = recipes;
@@ -27,18 +28,16 @@ function toFilterRecipes(selectedIngredientsTags, selectedAppliancesTags, seclec
     if (selectedAppliancesTags.length > 0) {
         for (let i = 0; i < result1.length; i++) {
             const { ingredients, appliance, ustensils } = result1[i];
-            let isIncludedInSelectedTags = false;
+            let matchedApp = 0;
 
             for (let y = 0; y < selectedAppliancesTags.length; y++) {
                 console.log(appliance, selectedAppliancesTags[y]);
                 if (appliance.toLowerCase() === selectedAppliancesTags[y].toLowerCase()) {
-                    isIncludedInSelectedTags = true;
-                } else {
-                    isIncludedInSelectedTags = false;
+                    matchedApp++;
                 }
             }
 
-            if (isIncludedInSelectedTags) {
+            if (matchedApp == selectedAppliancesTags.length) {
                 result2.push(result1[i]);
             }
         }
@@ -48,15 +47,13 @@ function toFilterRecipes(selectedIngredientsTags, selectedAppliancesTags, seclec
     if (seclectedUstensilsTags.length > 0) {
         for (let i = 0; i < result2.length; i++) {
             const { ingredients, appliance, ustensils } = result2[i];
-            let isIncludedInSelectedTags = false;
+            let matchedUST = 0;
             for (let y = 0; y < seclectedUstensilsTags.length; y++) {
                 if (ustensils.findIndex((ustensil) => ustensil.toLowerCase() === seclectedUstensilsTags[y].toLowerCase()) > -1) {
-                    isIncludedInSelectedTags = true;
-                } else {
-                    isIncludedInSelectedTags = false;
+                    matchedUST++;
                 }
             }
-            if (isIncludedInSelectedTags) {
+            if (matchedUST == seclectedUstensilsTags.length) {
                 result3.push(result2[i]);
             }
         }
@@ -66,7 +63,11 @@ function toFilterRecipes(selectedIngredientsTags, selectedAppliancesTags, seclec
 
     const results = result3;
     console.log(results)
+    displayTagLists(results)
     displayData(results);
+
+
+
     if (results.length < 1) {
         const err = document.getElementById("errorMess");
         console.log(err)

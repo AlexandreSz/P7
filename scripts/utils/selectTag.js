@@ -23,6 +23,7 @@ function showSelectedTags() {
                 showSelectedTagsContainer.removeChild(ingredientTagElement);
                 toFilterRecipes(selectedIngredientsTags, selectedAppliancesTags, seclectedUstensilsTags)
 
+
             })
 
             removeTagElement.appendChild(img);

@@ -14,12 +14,12 @@ function displayIngredientsTagList(ingredients) {
         const listElement = document.createElement('li');
         listElement.classList.add('dropdown-item');
         const dropdownLinkElement = document.createElement('a');
-        dropdownLinkElement.textContent = ingredient.toLowerCase();
+        dropdownLinkElement.innerHTML = ingredient.toLowerCase();
         dropdownLinkElement.addEventListener('click', function(event) {
             selectedIngredientsTags.push(event.target.textContent)
             showSelectedTags();
-
             toFilterRecipes(selectedIngredientsTags, selectedAppliancesTags, seclectedUstensilsTags);
+
         })
 
 
@@ -27,6 +27,8 @@ function displayIngredientsTagList(ingredients) {
         ingredientsTagsList.appendChild(listElement);
     })
 }
+
+
 //onclick replace text
 dropdownMenuLinkBlue.addEventListener('click', function(event) {
     event.target.parentNode.classList.add('filter_select_research_blue');
@@ -53,7 +55,12 @@ dropdownMenuLinkBlue.addEventListener('keyup', function(event) {
     } else if (event.target.value.length === 0) {
         displayIngredientsTagList(getAllIngredients());
     }
+
 })
+
+
+
+
 
 
 //appareils
