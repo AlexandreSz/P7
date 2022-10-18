@@ -62,7 +62,7 @@ function toFilterRecipes(selectedIngredientsTags, selectedAppliancesTags, seclec
     }
 
     const results = result3;
-    console.log(results)
+    // console.log(results)
     displayTagLists(results)
     displayData(results);
 
@@ -70,7 +70,7 @@ function toFilterRecipes(selectedIngredientsTags, selectedAppliancesTags, seclec
 
     if (results.length < 1) {
         const err = document.getElementById("errorMess");
-        console.log(err)
+        // console.log(err)
         err.style.display = "block"
     } else {
         const err = document.getElementById("errorMess");

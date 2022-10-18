@@ -20,7 +20,7 @@ function filterData(e) {
             }
             return false;
         });
-        console.log(filteredArr)
+        // console.log(filteredArr)
         displayData(filteredArr)
         displayTagLists(filteredArr)
 
