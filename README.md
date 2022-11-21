@@ -2,7 +2,7 @@
 
 ## INFO REPO
 
-la branch 1 du repo est pour l'utilisation de la méthode forEach
+la branch 1 du repo est pour l'utilisation de la méthode for
 
 la branch 2 du repo est pour l'utilisation de la méthode filter
 
