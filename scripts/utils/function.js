@@ -51,13 +51,16 @@ function displayTagLists(recipesData) {
 function getAllIngredients() {
     const ingredientsList = [];
     recipes.forEach((recipe) => {
+
         recipe.ingredients.forEach((ingredient) => {
             if (!ingredientsList.includes(ingredient.ingredient.toLowerCase())) {
                 ingredientsList.push(ingredient. /*name*/ ingredient.toLowerCase())
+
             }
         })
     })
     return ingredientsList;
+
 }
 
 //appliance

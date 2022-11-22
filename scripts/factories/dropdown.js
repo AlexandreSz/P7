@@ -11,14 +11,19 @@ function displayIngredientsTagList(ingredients) {
     ingredientsTagsList.innerHTML = "";
 
     ingredients.forEach((ingredient) => {
+        //permet d'enlever ingredient de la liste si sélectionné (evite d'avoir des tags en double)
+        if (selectedIngredientsTags.includes(ingredient)) {
+            return
+        }
         const listElement = document.createElement('li');
         listElement.classList.add('dropdown-item');
         const dropdownLinkElement = document.createElement('a');
         dropdownLinkElement.innerHTML = ingredient.toLowerCase();
+
         dropdownLinkElement.addEventListener('click', function(event) {
             selectedIngredientsTags.push(event.target.textContent)
             showSelectedTags();
-            toFilterRecipes(selectedIngredientsTags, selectedAppliancesTags, seclectedUstensilsTags);
+            globaleSearch();
 
         })
 
@@ -69,6 +74,9 @@ function displayApplianceTagList(appliance) {
     const applianceTagsList = document.getElementById('applianceTagsList');
     applianceTagsList.innerHTML = "";
     appliance.forEach((appliance) => {
+        if (selectedAppliancesTags.includes(appliance)) {
+            return
+        }
         const listElement = document.createElement('li');
         listElement.classList.add('dropdown-item');
 
@@ -77,10 +85,8 @@ function displayApplianceTagList(appliance) {
 
         dropdownLinkElement.addEventListener('click', function(event) {
             selectedAppliancesTags.push(event.target.textContent);
-            console.log(selectedAppliancesTags)
             showSelectedTags();
-
-            toFilterRecipes(selectedIngredientsTags, selectedAppliancesTags, seclectedUstensilsTags);
+            globaleSearch();
         })
 
         listElement.appendChild(dropdownLinkElement);
@@ -122,6 +128,9 @@ function displayUstensilsTagList(ustensils) {
     const ustensilsTagsList = document.getElementById('ustensilsTagsList');
     ustensilsTagsList.innerHTML = "";
     ustensils.forEach((ustensil) => {
+        if (seclectedUstensilsTags.includes(ustensil)) {
+            return
+        }
         const listElement = document.createElement('li');
 
         const dropdownLinkElement = document.createElement('a');
@@ -130,8 +139,7 @@ function displayUstensilsTagList(ustensils) {
         dropdownLinkElement.addEventListener('click', function(event) {
             seclectedUstensilsTags.push(event.target.textContent)
             showSelectedTags();
-
-            toFilterRecipes(selectedIngredientsTags, selectedAppliancesTags, seclectedUstensilsTags);
+            globaleSearch();
         })
         listElement.appendChild(dropdownLinkElement);
         ustensilsTagsList.appendChild(listElement);
