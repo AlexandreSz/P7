@@ -8,11 +8,11 @@ la branch 2 du repo est pour l'utilisation de la méthode filter
 
 ## Jsben.ch
 
-lien => https://jsben.ch/eWdC4
+lien =>
 
-![jsbench](https://user-images.githubusercontent.com/75409769/193944272-7a47bf2c-f1a5-4b3f-be4e-a2ec25b7086f.jpg)
 
-le résultat nous montre que la méthode filter est bien plus intéressante à utiliser que la méthode forEach
+
+le résultat nous montre que la méthode filter est bien plus intéressante à utiliser que la méthode for
 
 ## Résultats W3C
 
