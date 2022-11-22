@@ -8,9 +8,10 @@ la branch 2 du repo est pour l'utilisation de la méthode filter
 
 ## Jsben.ch
 
-lien =>
+lien => https://jsben.ch/p0ZKK
 
 
+![jsbench](https://user-images.githubusercontent.com/75409769/203384985-59f0b681-1f55-4ba4-b564-168cf6103537.jpg)
 
 le résultat nous montre que la méthode filter est bien plus intéressante à utiliser que la méthode for
 
