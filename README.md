@@ -3,6 +3,7 @@
 ## INFO REPO
 
 la prog fonctionnelle du repo est pour l'utilisation de la méthode filter
+
 la boucle native du repo est pour l'utilisation de la méthode for
 
 
