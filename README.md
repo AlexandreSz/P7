@@ -2,9 +2,10 @@
 
 ## INFO REPO
 
-la branch 1 du repo est pour l'utilisation de la méthode for
+la prog fonctionnelle du repo est pour l'utilisation de la méthode filter
+la boucle native du repo est pour l'utilisation de la méthode for
 
-la branch 2 du repo est pour l'utilisation de la méthode filter
+
 
 ## Jsben.ch
 
