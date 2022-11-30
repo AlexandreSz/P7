@@ -1,42 +1,46 @@
-const searchInput = document.querySelector('#searchBar');
+const searchInput = document.getElementById('searchBar');
 const searchResult = document.getElementById("recipesContainer");
 searchInput.addEventListener("input", globaleSearch);
 
-
-//Recherche complète texte + tag
+// Recherche complète "Texte + Tags"
 function globaleSearch(event) {
     let searchResults = [];
 
-
-    // recherche texte
-    let results = [];
+    //Recherche Texte
+    let searchTextResults = [];
 
     //On récupère la valeur du champ texte
-    const searchString = document.getElementById('searchBar').value
+    const searchString = document.getElementById('searchBar').value.toLowerCase()
 
+    //Filtre textuel en premier, uniquement si le texte > 3 caractères
     if (searchString.length >= 3) {
-
-        let searchkeybord = recipes.filter(el => {
-            // si la description ou le nom contiennent le texte
-            if (el.name.toLowerCase().includes(searchString) || el.description.toLowerCase().includes(searchString)) {
-                return true;
+        //je boucle sur toute les recettes
+        for (let i = 0; i < recipes.length; i++) {
+            //si la description ou le nom contiennent le texte
+            if (
+                recipes[i].description.toLowerCase().includes(searchString) ||
+                recipes[i].name.toLowerCase().includes(searchString)
+            ) {
+                //je mets la recette dans les résultats
+                searchTextResults.push(recipes[i]);
             } else {
-                //si l'ingredient contient le texte
-                const filteredIng = el.ingredients.filter(ingredient => ingredient.ingredient.toLowerCase().includes(searchString))
-                if (filteredIng.length > 0) {
-                    return true;
+                //je boucle sur les ingredients de la recette
+                for (let j = 0; j < recipes[i].ingredients.length; j++) {
+                    //si l'ingredient contient le texte
+                    if (recipes[i].ingredients[j].ingredient.toLowerCase().includes(searchString))
+                    //je mets la recette dans les résultats
+                        searchTextResults.push(recipes[i])
                 }
             }
-        });
-        results = searchkeybord;
-
-
+        }
     } else {
-        results = recipes
+        searchTextResults = recipes;
     }
-    if (results.length == 0) {
-        displayData(results)
-        displayTagLists(results)
+
+    // Si searchTextResults.length est 0 ==> on a recherché mais trouvé aucune recette ==> On affiche l'erreur et on stop
+    if (searchTextResults.length == 0) {
+        displayData(searchTextResults)
+        displayTagLists(searchTextResults)
             //On sort de la fonction
         searchResult.innerHTML = 'Aucune recette ne correspond à la recherche'
         return;
@@ -52,64 +56,62 @@ function globaleSearch(event) {
     //Ingredients
     if (selectedIngredientsTags.length > 0) {
         //je boucle sur mes recettes
-        results.forEach((result) => {
+        for (let i = 0; i < searchTextResults.length; i++) {
+            const { ingredients } = searchTextResults[i];
             let matchedIng = 0;
             //je boucle sur les tags d'ingrédients
-            selectedIngredientsTags.forEach((selectedIngredientsTag) => {
-                if (result.ingredients.findIndex((ingredient) => ingredient.ingredient.toLowerCase() === selectedIngredientsTag.toLowerCase()) > -1) {
+            for (let y = 0; y < selectedIngredientsTags.length; y++) {
+                if (ingredients.findIndex((ingredient) => ingredient.ingredient.toLowerCase() === selectedIngredientsTags[y].toLowerCase()) > -1) {
                     matchedIng++;
                 }
-                //si je trouve bien tous les ingredients
-                if (matchedIng == selectedIngredientsTags.length) {
-                    resultFromIngredients.push(result)
-                }
-            })
-        })
-
+            }
+            //si je trouve bien tous les ingredients
+            if (matchedIng == selectedIngredientsTags.length) {
+                //j'ajoute la recette
+                resultFromIngredients.push(searchTextResults[i])
+            }
+        }
     } else {
-        resultFromIngredients = results;
+        resultFromIngredients = searchTextResults;
     }
 
 
     //Appliances
     if (selectedAppliancesTags.length > 0) {
         //je boucle sur mes recettes
-        resultFromIngredients.forEach((resultFromIngredient) => {
+        for (let i = 0; i < resultFromIngredients.length; i++) {
+            const { ingredients, appliance } = resultFromIngredients[i];
             let matchedApp = 0;
             //je boucle sur les tags d'ingrédients
-            selectedAppliancesTags.forEach((selectedAppliancesTag) => {
-                if (resultFromIngredient.appliance.toLowerCase() === selectedAppliancesTag.toLowerCase()) {
+            for (let y = 0; y < selectedAppliancesTags.length; y++) {
+                if (appliance.toLowerCase() === selectedAppliancesTags[y].toLowerCase()) {
                     matchedApp++;
                 }
-                //si je trouve bien tous les appliances
-                if (matchedApp == selectedAppliancesTags.length) {
-                    resultFromAppliances.push(resultFromIngredient)
-                }
-            })
-        })
-
+            }
+            //si je trouve bien tous les appliances
+            if (matchedApp == selectedAppliancesTags.length) {
+                //j'ajoute la recette
+                resultFromAppliances.push(resultFromIngredients[i])
+            }
+        }
     } else {
         resultFromAppliances = resultFromIngredients;
     }
 
-
     //Ustensils
     if (seclectedUstensilsTags.length > 0) {
-        //je boucle sur mes recettes
-        resultFromAppliances.forEach((resultFromAppliance) => {
-            let matchedUst = 0;
-            //je boucle sur les tags d'ingrédients
-            seclectedUstensilsTags.forEach((selectedUstensilsTag) => {
-                if (resultFromAppliance.ustensils.findIndex((ustensil) => ustensil.toLowerCase() === selectedUstensilsTag.toLowerCase()) > -1) {
-                    matchedUst++;
+        for (let i = 0; i < resultFromAppliances.length; i++) {
+            const { ingrdients, appliances, ustensils } = resultFromAppliances[i];
+            let matchedUST = 0;
+            for (let y = 0; y < seclectedUstensilsTags.length; y++) {
+                if (ustensils.findIndex((ustensil) => ustensil.toLowerCase() === seclectedUstensilsTags[y].toLowerCase()) > -1) {
+                    matchedUST++;
                 }
-                //si je trouve bien tous les ingredients
-                if (matchedUst == seclectedUstensilsTags.length) {
-                    resultFromUstensils.push(resultFromAppliance)
-                }
-            })
-        })
-
+            }
+            if (matchedUST == seclectedUstensilsTags.length) {
+                resultFromUstensils.push(resultFromAppliances[i])
+            }
+        }
     } else {
         resultFromUstensils = resultFromAppliances;
     }
