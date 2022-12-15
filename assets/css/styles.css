@@ -80,21 +80,21 @@ header {
 /*filters section*/
 .filter {
   align-items: baseline;
+  justify-content: space-between;
 }
 
-.filter_nav {
+.btn-group {
+  width: 30%;
   list-style-type: none;
-  display: flex;
-  flex-direction: row;
   margin: 0;
 }
 @media (max-width: 1024px) {
-  .filter_nav {
-    gap: 3rem;
+  .btn-group {
+    gap: 1rem;
   }
 }
 @media (max-width: 720px) {
-  .filter_nav {
+  .btn-group {
     flex-direction: column;
     gap: unset;
   }
@@ -102,8 +102,8 @@ header {
 
 .filter-item {
   cursor: pointer;
-  width: 30%;
-  margin: 20px 20px 20px 0;
+  width: 100%;
+  margin: 10px 20px 20px 0;
   display: flex;
 }
 .filter-item_research {
@@ -114,6 +114,7 @@ header {
 }
 
 #dropdownMenuLinkBlue {
+  cursor: pointer;
   background-color: #3282F7;
   color: #fff;
 }
@@ -123,6 +124,7 @@ header {
 }
 
 #dropdownMenuLinkGreen {
+  cursor: pointer;
   background-color: #68D9A4;
   color: #fff;
 }
@@ -132,6 +134,7 @@ header {
 }
 
 #dropdownMenuLinkRed {
+  cursor: pointer;
   background-color: #ED6454;
   color: #fff;
 }
@@ -188,7 +191,7 @@ header {
 }
 
 .dropdown-menu {
-  width: 60%;
+  width: 100%;
 }
 
 .dropdown-item {
@@ -198,7 +201,7 @@ header {
 .dropdown_menu_blue {
   background: #3282F7;
   column-count: 3;
-  width: 75%;
+  width: 200%;
 }
 @media (max-width: 720px) {
   .dropdown_menu_blue {
