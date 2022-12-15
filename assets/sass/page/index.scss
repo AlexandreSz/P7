@@ -81,15 +81,15 @@ header {
 
 .filter {
     align-items: baseline;
+    justify-content: space-between;
 }
 
-.filter_nav {
+.btn-group {
+    width: 30%;
     list-style-type: none;
-    display: flex;
-    flex-direction: row;
     margin: 0;
     @media (max-width: 1024px) {
-        gap: 3rem;
+        gap: 1rem;
     }
     @media (max-width: 720px) {
         flex-direction: column;
@@ -99,8 +99,8 @@ header {
 
 .filter-item {
     cursor: pointer;
-    width: 30%;
-    margin: 20px 20px 20px 0;
+    width: 100%;
+    margin: 10px 20px 20px 0;
     display: flex;
     &_research {
         cursor: pointer;
@@ -111,6 +111,7 @@ header {
 }
 
 #dropdownMenuLinkBlue {
+    cursor: pointer;
     background-color: #3282F7;
     color: #fff;
     &::placeholder {
@@ -120,6 +121,7 @@ header {
 }
 
 #dropdownMenuLinkGreen {
+    cursor: pointer;
     background-color: $color-green;
     color: #fff;
     &::placeholder {
@@ -129,6 +131,7 @@ header {
 }
 
 #dropdownMenuLinkRed {
+    cursor: pointer;
     background-color: $color-red;
     color: #fff;
     &::placeholder {
@@ -187,7 +190,7 @@ header {
 }
 
 .dropdown-menu {
-    width: 60%;
+    width: 100%;
 }
 
 .dropdown-item {
@@ -198,7 +201,7 @@ header {
     &_blue {
         background: $color-blue;
         column-count: 3;
-        width: 75%;
+        width: 200%;
         @media (max-width: 720px) {
             column-count: 1;
             width: 80%;
