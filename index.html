@@ -32,29 +32,29 @@
 
         <!--dropdown menu-->
 
-        <section class="filter" id="filterSection">
+        <div class="filter" id="filterSection">
             <div class="btn-group">
                 <div class="filter-item filter_blue dropdown" data-bs-toggle="dropdown" id="filter_blue">
-                    <input class="filter_select" placeholder="Ingredients" id="dropdownMenuLinkBlue" aria-expanded="false" onblur="textModifblue()" />
+                    <input class="filter_select" placeholder="Ingredients" type="text" id="dropdownMenuLinkBlue" onblur="textModifblue()">
                     <i id="chevron_blue" class="fa-solid fa-chevron-down"></i>
                     <ul class="dropdown-menu dropdown_menu_blue" id="ingredientsTagsList"></ul>
                 </div>
             </div>
             <div class="btn-group">
                 <div class="filter-item dropdown filter_green" data-bs-toggle="dropdown" id="filter_green">
-                    <input class="filter_select" data-bs-toggle="dropdown" placeholder="Appareils" id="dropdownMenuLinkGreen" aria-expanded="false" onblur="textModifgreen()" />
+                    <input class="filter_select" data-bs-toggle="dropdown" placeholder="Appareils" type="text" id="dropdownMenuLinkGreen" onblur="textModifgreen()">
                     <i id="chevron_green" class="fa-solid fa-chevron-down"></i>
                     <ul class="dropdown-menu dropdown_menu_green" id="applianceTagsList"></ul>
                 </div>
             </div>
             <div class="btn-group">
                 <div class="filter-item dropdowm filter_red" data-bs-toggle="dropdown" id="filter_red">
-                    <input class="filter_select" placeholder="Ustensiles" id="dropdownMenuLinkRed" aria-expanded="false" onblur="textModifred()" />
+                    <input class="filter_select" placeholder="Ustensiles" type="text" id="dropdownMenuLinkRed" onblur="textModifred()">
                     <i id="chevron_red" class="fa-solid fa-chevron-down"></i>
                     <ul class="dropdown-menu dropdown_menu_red" id="ustensilsTagsList"></ul>
                 </div>
             </div>
-        </section>
+        </div>
 
         <!--recipe container-->
         <div id="recipesContainer" class="recipesContainer">
